@@ -1,4 +1,4 @@
-/*! PhotoSwipe Default UI - 4.1.2 - 2017-04-05
+/*! PhotoSwipe Default UI - 4.1.2 - 2017-11-03
 * http://photoswipe.com
 * Copyright (c) 2017 Dmitry Semenov; */
 /**
@@ -442,7 +442,19 @@ var PhotoSwipeUI_Default =
 				_shareButton = el;
 			},
 			onTap: function() {
-				_toggleShareModal();
+				// _toggleShareModal();
+				//use rotate to replace share for dzj purpose
+                var curImg = pswp.currItem.container.lastChild
+                var rotate = curImg.style.transform
+
+                if(rotate && rotate.length > 0) {
+                    var degreeReg = /\d+/gi
+                    var degree = parseInt(rotate.match(degreeReg))
+                    degree += 90
+                    curImg.style.transform='rotate(' + degree + 'deg)'
+                } else {
+                    curImg.style.transform="rotate(90deg)"
+                }
 			} 
 		},
 		{ 
