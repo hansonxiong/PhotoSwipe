@@ -447,7 +447,6 @@
                         _downloadButton = el;
                     },
                     onTap: function () {
-                        console.log(_downloadButton);
                         var shareURL = pswp.currItem.src;
                         _downloadButton.innerHTML = '<a href="' + shareURL + '" target="_blank" download=""></a>';
                         _downloadButton.children[0].click();
